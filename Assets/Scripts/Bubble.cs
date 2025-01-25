@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BubbleController : MonoBehaviour
@@ -13,6 +14,27 @@ public class BubbleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void DeadBubble()
+    {   
+        // Animations here later
+
+        // Destroy the bubble
+        DestroyBubble();
+    }
+
+    public void DestroyBubble()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            DestroyBubble();
+        }
     }
 }
 

@@ -11,7 +11,8 @@ public class GamePadInput : MonoBehaviour
     public float flickThreshold;
     public float flickThresholdMouse;
 
-    public float forceMultiplier;
+    public float gamepadForceMultiplier;
+    public float mouseForceMultiplier;
 
     private Rigidbody2D bubbleRb;
 
@@ -74,14 +75,11 @@ public class GamePadInput : MonoBehaviour
             {
                 Debug.Log("Left stick magnitude: " + leftStick.magnitude);
 
-                var rightStickDiff = (Vector2)rightStick - prevRightStick;
-                Debug.Log("Right stick diff: " + rightStickDiff);
+                var rightStickDiff = rightStick - prevRightStick;
 
                 if (rightStickDiff.magnitude > flickThreshold)
                 {
-                    Debug.Log("Right stick diff magnitude: " + rightStickDiff.magnitude);
-
-                    var force = (Vector2)leftStick * rightStickDiff.magnitude * forceMultiplier;
+                    var force = leftStick * rightStickDiff.magnitude * gamepadForceMultiplier;
                     bubbleRb.AddForceAtPosition(force, Vector2.zero);
 
                     Debug.Log("Force applied: " + force);

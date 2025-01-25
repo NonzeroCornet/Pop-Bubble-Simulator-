@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Starting game!");
         LoadGameData();
+        SaveGameData();
     }
 
     // Update is called once per frame
@@ -42,6 +43,12 @@ public class GameController : MonoBehaviour
 
         wetness -= Time.deltaTime;
         // wetnessText.text = $"Wetness: {wetness:F2} units";
+    }
+
+    public void EndGame()
+    {
+        SaveGameData();
+        Application.Quit();
     }
 
     public void SaveGameData()

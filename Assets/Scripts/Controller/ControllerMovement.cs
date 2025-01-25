@@ -7,10 +7,15 @@ public class GamePadInput : MonoBehaviour
     public BubbleController bubble;
     public GameObject bubbleArrow;
 
+    public GameObject bubbleObject;
+
     public float dirThreshold;
     public float flickThreshold;
 
     public float gamepadForceMultiplier;
+
+    public float impulseScale = 0.002f;
+    public float velocityClamp = 1.36f;
 
     private Rigidbody2D bubbleRb;
 
@@ -20,6 +25,17 @@ public class GamePadInput : MonoBehaviour
     void Start()
     {
         bubbleRb = bubble.GetComponent<Rigidbody2D>();
+
+        var gamepad = Gamepad.current;
+        if (gamepad != null)
+        {
+            Debug.Log("Gamepad found");
+        }
+        else
+        {
+            Debug.Log("Gamepad not found");
+            bubbleObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +45,7 @@ public class GamePadInput : MonoBehaviour
         var gamepad = Gamepad.current;
         if (gamepad != null)
         {
-            var leftStick = gamepad.leftStick.ReadValue(); // Direction
+            var leftStick = gamepad.leftStick.ReadValue(); // Directaion
             var rightStick = gamepad.rightStick.ReadValue(); // Flick to apply force
 
             Debug.Log("Left stick: " + leftStick + " Right stick: " + rightStick);
@@ -42,10 +58,10 @@ public class GamePadInput : MonoBehaviour
 
                 if (rightStickDiff.magnitude > flickThreshold)
                 {
-                    var force = leftStick * rightStickDiff.magnitude * gamepadForceMultiplier;
-                    bubbleRb.AddForceAtPosition(force, Vector2.zero);
+                    var impulse = leftStick * rightStickDiff.magnitude * gamepadForceMultiplier;
+                    bubbleRb.AddForce(impulse, ForceMode2D.Impulse);
 
-                    Debug.Log("Force applied: " + force);
+                    Debug.Log("Force applied: " + impulse);
                 }
 
                 bubbleArrow.SetActive(true);
@@ -63,6 +79,11 @@ public class GamePadInput : MonoBehaviour
         {
             Debug.Log("Gamepad not found");
         }
+    }
+
+    void LateUpdate()
+    {
+        bubbleRb.linearVelocity = Vector2.ClampMagnitude(bubbleRb.linearVelocity, velocityClamp);
     }
 }
 

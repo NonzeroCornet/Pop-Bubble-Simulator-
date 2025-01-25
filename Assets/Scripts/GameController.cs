@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     // Wetness
     public float wetness = 0;
     public TextMeshProUGUI wetnessText;
+    public GameObject wetnessPanel;
 
     // Top scores
     public int topScores = 0;
@@ -46,7 +47,7 @@ public class GameController : MonoBehaviour
 
         wetness -= Time.deltaTime;
         // wetnessText.text = $"Wetness: {wetness:F2} units";
-        SetBubbleSize();
+        SetWetnessPanelSize();
     }
 
     public void EndGame()
@@ -77,10 +78,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void SetBubbleSize()
+    private void SetWetnessPanelSize()
     {
-        float size = Mathf.Clamp(wetness, 1, 100);
-        bubble.transform.localScale = new Vector3(size, size, size);
+        float size = Mathf.Clamp(wetness, 0, 100);
+        wetnessPanel.GetComponent<RectTransform>().right = new Vector2(size, wetnessPanel.GetComponent<RectTransform>().right.y);
     }
 }
 

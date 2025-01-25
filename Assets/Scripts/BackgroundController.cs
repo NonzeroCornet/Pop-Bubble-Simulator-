@@ -5,7 +5,7 @@ public class BackgroundController : MonoBehaviour
 {
     public float scrollSpeed = 0.1f;
     public Sprite bgSprite;
-    public Image bgImage;
+    public SpriteRenderer bgImage;
 
     private float offset;
 
@@ -20,7 +20,7 @@ public class BackgroundController : MonoBehaviour
     void Update()
     {
         offset += scrollSpeed * Time.deltaTime;
-        bgImage.rectTransform.anchoredPosition = new Vector2(offset, 0);
+        bgImage.transform.position = new Vector2(offset, 0);
 
         if (offset >= bgSprite.rect.width)
         {

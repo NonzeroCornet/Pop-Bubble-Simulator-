@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pickel-art_0: 300955567974578032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Awaking game!");
         distanceText.text = $"Distance traveled: {distance:F2} units";
-        wetnessText.text = $"Wetness: {wetness:F2} units";
-        topScoresText.text = $"Top Scores: {topScores}";
+        // wetnessText.text = $"Wetness: {wetness:F2} units";
+        // topScoresText.text = $"Top Scores: {topScores}";
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,11 +7,13 @@ public class GamePadInput : MonoBehaviour
     public BubbleController bubble;
 
     public float flickThreshold;
+    public float flickThresholdMouse;
 
     public float forceMultiplier;
 
     private Rigidbody2D bubbleRb;
 
+    private Vector2 prevMousePos;
     private Vector2 prevRightStick;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,17 +33,49 @@ public class GamePadInput : MonoBehaviour
 
             //Debug.Log("Left stick: " + leftStick + " Right stick: " + rightStick);
 
-            var rightStickDiff = rightStick.magnitude - prevRightStick.magnitude;
+            var rightStickDiff = (Vector2)rightStick - prevRightStick;
 
-            if (rightStickDiff > flickThreshold)
+            if (rightStickDiff.magnitude > flickThreshold)
             {
-                var force = leftStick * rightStickDiff * forceMultiplier;
-                bubbleRb.AddForceAtPosition(force, Vector2.zero);
+                var force = (Vector2)leftStick * rightStickDiff.magnitude * forceMultiplier;
+                bubbleRb.AddForce(force, ForceMode2D.Impulse);
 
                 Debug.Log("Force applied: " +  force);
             }
 
             prevRightStick = rightStick;
         }
+
+        // Mouse support
+        if (Mouse.current != null)
+        {
+            var mousePos = Mouse.current.position.ReadValue();
+
+            if (IsMouseOverBubble())
+            {
+                var mousePosDiff = (Vector2)mousePos - prevMousePos;
+
+                Debug.Log("Right stick diff: " + mousePosDiff);
+
+                if (mousePosDiff.magnitude > flickThresholdMouse)
+                {
+                    var force = mousePosDiff * forceMultiplier;
+                    bubbleRb.AddForceAtPosition(force, Vector2.zero);
+
+                    Debug.Log("Force applied: " +  force);
+                }
+            }
+
+            prevMousePos = (Vector2)mousePos;
+        }
+    }
+
+    private bool IsMouseOverBubble()
+    {
+        var mousePos = Mouse.current.position.ReadValue();
+        var bubblePos = bubble.transform.position;
+
+        return Vector2.Distance(mousePos, bubblePos) < 100f;
     }
 }
+

@@ -19,6 +19,9 @@ public class GameController : MonoBehaviour
     public int topScores = 0;
     public TextMeshProUGUI topScoresText;
 
+    // No way chat is this a bubble reference????
+    public GameObject bubble;
+
     void Awake()
     {
         Debug.Log("Awaking game!");
@@ -38,8 +41,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance += speed * Time.deltaTime;
-        distanceText.text = $"Distance traveled: {distance:F2} units";
+        // Check if bubble is to the right of the screen
+        if (bubble.transform.position.x > distance)
+        {
+            distance = bubble.transform.position.x;
+            distanceText.text = $"Distance traveled: {distance:F2} units";
+        }
 
         wetness -= Time.deltaTime;
         // wetnessText.text = $"Wetness: {wetness:F2} units";

@@ -34,9 +34,11 @@ public class GamePadInput : MonoBehaviour
             var leftStick = gamepad.leftStick.ReadValue(); // Direction
             var rightStick = gamepad.rightStick.ReadValue(); // Flick to apply force
 
+            Debug.Log("Left stick: " + leftStick + " Right stick: " + rightStick);
+
             if (leftStick.magnitude > dirThreshold)
             {
-                //Debug.Log("Left stick: " + leftStick + " Right stick: " + rightStick);
+                Debug.Log("Left stick magnitude: " + leftStick.magnitude);
 
                 var rightStickDiff = rightStick - prevRightStick;
 
@@ -67,16 +69,20 @@ public class GamePadInput : MonoBehaviour
 
             if (IsMouseOverBubble())
             {
+                Debug.Log("Mouse pos: " + mousePos);
+
                 var mousePosDiff = (Vector2)mousePos - prevMousePos;
 
-                Debug.Log("Mouse diff: " + mousePosDiff);
+                Debug.Log("Mouse pos diff: " + mousePosDiff);
 
                 if (mousePosDiff.magnitude > flickThresholdMouse)
                 {
+                    Debug.Log("Mouse pos diff magnitude: " + mousePosDiff.magnitude);
+
                     var force = mousePosDiff * mouseForceMultiplier;
                     bubbleRb.AddForceAtPosition(force, Vector2.zero);
 
-                    Debug.Log("Force applied: " +  force);
+                    Debug.Log("Force applied: " + force);
                 }
             }
 
@@ -89,7 +95,8 @@ public class GamePadInput : MonoBehaviour
         var mousePos = Mouse.current.position.ReadValue();
         var bubblePos = bubble.transform.position;
 
+        Debug.Log("Mouse pos: " + mousePos + " Bubble pos: " + bubblePos);
+
         return Vector2.Distance(mousePos, bubblePos) < 100f;
     }
 }
-

@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fe4d4e8457585e089a773eb1c64400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: -0.1
+  scrollSpeed: -0.3
   bgSprite: {fileID: 300955567974578032, guid: 3031697b1a251fdc887ce11fc1ca6fee, type: 3}
   bgImage: {fileID: 1357168322}
 --- !u!4 &1357168321
@@ -2358,6 +2358,7 @@ GameObject:
   - component: {fileID: 2076869081}
   - component: {fileID: 2076869080}
   - component: {fileID: 2076869082}
+  - component: {fileID: 2076869079}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -2443,10 +2444,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 2028572029}
   bubbleArrow: {fileID: 2009443924}
-  dirThreshold: 0
+  dirThreshold: 0.1
   flickThreshold: 0.1
   flickThresholdMouse: 250
-  forceMultiplier: 3
+  gamepadForceMultiplier: 12
+  mouseForceMultiplier: 50
 --- !u!1 &2132690044
 GameObject:
   m_ObjectHideFlags: 0

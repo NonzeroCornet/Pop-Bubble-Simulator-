@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,12 +32,26 @@ public class BubbleController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Bubble"))
         {
-            DestroyBubble();
+            return;
         }
 
         DestroyBubble();
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bubble"))
+        {
+            return;
+        }
+
+        // Wetness zones
+        if (collision.gameObject.CompareTag("Wet"))
+        {
+            GameController.instance.IncrementWetness(10f);
+        }
     }
 }
 

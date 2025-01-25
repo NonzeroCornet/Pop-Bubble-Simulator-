@@ -4,9 +4,12 @@ using UnityEngine;
 using TMPro;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.Rendering;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController instance;
+
     public float distance = 0;
     public float speed = 0.2f;
     public TextMeshProUGUI distanceText;
@@ -25,6 +28,14 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         Debug.Log("Awaking game!");
         distanceText.text = $"Distance traveled: {distance:F2} units";
         // wetnessText.text = $"Wetness: {wetness:F2} units";
@@ -82,6 +93,12 @@ public class GameController : MonoBehaviour
     {
         float size = Mathf.Clamp(wetness, 0, 100);
         wetnessPanel.GetComponent<RectTransform>().right = new Vector2(size, wetnessPanel.GetComponent<RectTransform>().right.y);
+    }
+
+    public void IncrementWetness(float amount)
+    {
+        wetness += amount;
+        SetWetnessPanelSize();
     }
 }
 

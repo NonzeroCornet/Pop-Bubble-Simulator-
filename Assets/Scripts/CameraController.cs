@@ -22,8 +22,21 @@ public class CameraController : MonoBehaviour
         if (bubbles.Count == 0)
             return;
 
+        RemoveMissingBubbles();
+
         // Move();
         Zoom();
+    }
+
+    void RemoveMissingBubbles()
+    {
+        for (int i = bubbles.Count - 1; i >= 0; i--)
+        {
+            if (bubbles[i] == null || !bubbles[i].gameObject.activeSelf)
+            {
+                bubbles.RemoveAt(i);
+            }
+        }
     }
 
     void Move()

@@ -8,7 +8,7 @@ using System.IO;
 public class GameController : MonoBehaviour
 {
     public float distance = 0;
-    public float speed = 5f;
+    public float speed = 0.2f;
     public TextMeshProUGUI distanceText;
 
     // Wetness
@@ -41,15 +41,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if bubble is to the right of the screen
-        if (bubble.transform.position.x > distance)
-        {
-            distance = bubble.transform.position.x;
-            distanceText.text = $"Distance traveled: {distance:F2} units";
-        }
+        distance += speed * Time.deltaTime;
+        distanceText.text = $"Distance traveled: {distance:F2} units";
 
         wetness -= Time.deltaTime;
         // wetnessText.text = $"Wetness: {wetness:F2} units";
+        SetBubbleSize();
     }
 
     public void EndGame()
@@ -79,4 +76,11 @@ public class GameController : MonoBehaviour
             int.TryParse(data.topScores, out topScores);
         }
     }
+
+    private void SetBubbleSize()
+    {
+        float size = Mathf.Clamp(wetness, 1, 100);
+        bubble.transform.localScale = new Vector3(size, size, size);
+    }
 }
+

@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         if (bubbles.Count == 0)
             return;
 
-        Move();
+        // Move();
         Zoom();
     }
 
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
     {
         Vector3 centerPoint = GetCenterPoint();
 
-        Vector3 newPosition = centerPoint;
+        Vector3 newPosition = new Vector3(centerPoint.x, centerPoint.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
     }
 

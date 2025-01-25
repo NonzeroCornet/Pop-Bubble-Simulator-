@@ -42,7 +42,7 @@ public class GamePadInput : MonoBehaviour
             if (rightStickDiff.magnitude > flickThreshold)
             {
                 var force = (Vector2)leftStick * rightStickDiff.magnitude * forceMultiplier;
-                bubbleRb.AddForce(force, ForceMode2D.Impulse);
+                bubbleRb.AddForceAtPosition(force, Vector2.zero);
 
                     Debug.Log("Force applied: " + force);
                 }

@@ -4,7 +4,9 @@ using UnityEngine.InputSystem;
 public class GamePadInput : MonoBehaviour
 {
     public BubbleController bubble;
+    public GameObject bubbleArrow;
 
+    public float dirThreshold;
     public float flickThreshold;
 
     public float forceMultiplier;
@@ -28,16 +30,27 @@ public class GamePadInput : MonoBehaviour
             var leftStick = gamepad.leftStick.ReadValue(); // Direction
             var rightStick = gamepad.rightStick.ReadValue(); // Flick to apply force
 
-            //Debug.Log("Left stick: " + leftStick + " Right stick: " + rightStick);
-
-            var rightStickDiff = rightStick.magnitude - prevRightStick.magnitude;
-
-            if (rightStickDiff > flickThreshold)
+            if (leftStick.magnitude > dirThreshold)
             {
-                var force = leftStick * rightStickDiff * forceMultiplier;
-                bubbleRb.AddForceAtPosition(force, Vector2.zero);
+                //Debug.Log("Left stick: " + leftStick + " Right stick: " + rightStick);
 
-                Debug.Log("Force applied: " +  force);
+                var rightStickDiff = rightStick.magnitude - prevRightStick.magnitude;
+
+                if (rightStickDiff > flickThreshold)
+                {
+                    var force = leftStick * rightStickDiff * forceMultiplier;
+                    bubbleRb.AddForceAtPosition(force, Vector2.zero);
+
+                    Debug.Log("Force applied: " + force);
+                }
+
+                bubbleArrow.SetActive(true);
+                var arrowAngle = Mathf.Atan2(leftStick.y, leftStick.x) * Mathf.Rad2Deg;
+                bubbleArrow.transform.rotation = Quaternion.Euler(0f, 0f, arrowAngle);
+            }
+            else
+            {
+                bubbleArrow.SetActive(false);
             }
 
             prevRightStick = rightStick;

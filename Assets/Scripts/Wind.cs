@@ -19,7 +19,23 @@
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-            rb.AddForce(movement * speed);
+            if (!IsMouseOver())
+            {
+                rb.AddForce(movement * speed);
+            }
+        }
+
+        bool IsMouseOver()
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                return hit.transform == transform;
+            }
+
+            return false;
         }
 
         void OnCollisionEnter(Collision collision)
@@ -31,6 +47,4 @@
             }
         }
     }
-
-
 

@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
         distanceText.text = $"Distance traveled: {distance:F2} units";
 
         wetness -= Time.deltaTime;
-        wetnessText.text = $"Wetness: {wetness:F2} units";
+        // wetnessText.text = $"Wetness: {wetness:F2} units";
     }
 
     public void SaveGameData()

@@ -14,8 +14,11 @@ public class WindController : MonoBehaviour
         mousePosition.z = 10f; // the distance from the camera to the object
         Vector3 objectPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector3 direction = (objectPosition - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
+        if ((objectPosition - transform.position).magnitude > 0.1f) // stop movement if close to mouse
+        {
+            Vector3 direction = (objectPosition - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
+        }
 
         // rotate to the cursor
         Vector3 targetDirection = objectPosition - transform.position;
@@ -30,6 +33,3 @@ public class WindController : MonoBehaviour
         transform.eulerAngles = euler;
     }
 }
-
-
-

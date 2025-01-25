@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7528447883527953912}
-  - component: {fileID: 4878193431880600395}
   m_Layer: 0
   m_Name: Scenery
   m_TagString: Ground
@@ -71,27 +70,6 @@ Transform:
   - {fileID: 8153064812481719340}
   m_Father: {fileID: 5451549363272733384}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4878193431880600395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 631801917831243383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0064b657208924939a38226c46791f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  waypointThreshold: 0.1
-  toMove: {fileID: 0}
-  waypoints:
-  - {fileID: 5791768028911653470}
-  - {fileID: 5348577225991479581}
-  - {fileID: 5326423502042377821}
-  - {fileID: 8446876752238569627}
-  - {fileID: 304983095432306478}
 --- !u!1 &1192892299053503000
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,8 @@ public class BubbleController : MonoBehaviour
         {
             DestroyBubble();
         }
+
+        DestroyBubble();
     }
 }
 

@@ -27,6 +27,41 @@ public class GamePadInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Mouse support
+        if (Mouse.current != null)
+        {
+            bubbleArrow.SetActive(false);
+
+            var mousePos = Mouse.current.position.ReadValue();
+
+            if (IsMouseOverBubble())
+            {
+                Debug.Log("Mouse pos: " + mousePos);
+
+                var mousePosDiff = (Vector2)mousePos - prevMousePos;
+
+                Debug.Log("Mouse pos diff: " + mousePosDiff);
+
+                if (mousePosDiff.magnitude > flickThresholdMouse)
+                {
+                    Debug.Log("Mouse pos diff magnitude: " + mousePosDiff.magnitude);
+
+                    var force = mousePosDiff * forceMultiplier;
+                    bubbleRb.AddForceAtPosition(force, Vector2.zero);
+
+                    Debug.Log("Force applied: " + force);
+                }
+            }
+
+            prevMousePos = (Vector2)mousePos;
+        }
+        else
+        {
+            Debug.Log("Mouse not found");
+        }
+        
+        // Gamepad support
         var gamepad = Gamepad.current;
         if (gamepad != null)
         {
@@ -63,32 +98,9 @@ public class GamePadInput : MonoBehaviour
 
             prevRightStick = rightStick;
         }
-
-        // Mouse support
-        if (Mouse.current != null)
+        else
         {
-            var mousePos = Mouse.current.position.ReadValue();
-
-            if (IsMouseOverBubble())
-            {
-                Debug.Log("Mouse pos: " + mousePos);
-
-                var mousePosDiff = (Vector2)mousePos - prevMousePos;
-
-                Debug.Log("Mouse pos diff: " + mousePosDiff);
-
-                if (mousePosDiff.magnitude > flickThresholdMouse)
-                {
-                    Debug.Log("Mouse pos diff magnitude: " + mousePosDiff.magnitude);
-
-                    var force = mousePosDiff * forceMultiplier;
-                    bubbleRb.AddForceAtPosition(force, Vector2.zero);
-
-                    Debug.Log("Force applied: " + force);
-                }
-            }
-
-            prevMousePos = (Vector2)mousePos;
+            Debug.Log("Gamepad not found");
         }
     }
 

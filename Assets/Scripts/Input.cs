@@ -48,7 +48,7 @@ public class GamePadInput : MonoBehaviour
                 {
                     Debug.Log("Mouse pos diff magnitude: " + mousePosDiff.magnitude);
 
-                    var force = mousePosDiff * forceMultiplier;
+                    var force = mousePosDiff * mouseForceMultiplier;
                     bubbleRb.AddForceAtPosition(force, Vector2.zero);
 
                     Debug.Log("Force applied: " + force);

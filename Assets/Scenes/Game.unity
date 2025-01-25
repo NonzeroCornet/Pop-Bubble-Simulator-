@@ -2170,7 +2170,7 @@ Rigidbody2D:
   m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.25
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2378,13 +2378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e731189aefa999d45a443e6b98eb9707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubble: {fileID: 2028572029}
-  bubbleArrow: {fileID: 2009443924}
-  dirThreshold: 0.1
-  flickThreshold: 0.1
-  flickThresholdMouse: 250
-  gamepadForceMultiplier: 12
-  mouseForceMultiplier: 50
 --- !u!114 &2076869080
 MonoBehaviour:
   m_ObjectHideFlags: 0

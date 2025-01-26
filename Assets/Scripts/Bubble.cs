@@ -48,7 +48,7 @@ public class BubbleController : MonoBehaviour
         }
 
         // Wetness zones
-        if (collision.gameObject.CompareTag("Wet"))
+        if (collision.gameObject.CompareTag("Wetness"))
         {
             GameController.instance.IncrementWetness(10f);
         }

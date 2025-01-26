@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &631801917831243383
 GameObject:
@@ -511,7 +511,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252149512092277375
 GameObject:
@@ -779,6 +779,48 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.99999994}
   m_EdgeRadius: 0
+--- !u!1 &2029936764076971823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3028254849007745828}
+  m_Layer: 0
+  m_Name: Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3028254849007745828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029936764076971823}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4014731379678857260}
+  - {fileID: 5791768028911653470}
+  - {fileID: 5348577225991479581}
+  - {fileID: 5326423502042377821}
+  - {fileID: 8446876752238569627}
+  - {fileID: 304983095432306478}
+  - {fileID: 3167292127102745764}
+  - {fileID: 7205906576073875644}
+  - {fileID: 2627582267713774910}
+  - {fileID: 8556598130767926702}
+  - {fileID: 4956292909042210517}
+  m_Father: {fileID: 5451549363272733384}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2176638148835909441
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +850,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2182817288931385204
 GameObject:
@@ -972,7 +1014,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2880582450361990432
 GameObject:
@@ -1402,7 +1444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3765688575316606834
 GameObject:
@@ -1699,7 +1741,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4017720248739687155
 GameObject:
@@ -1863,7 +1905,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4459805565441782724
 GameObject:
@@ -1894,7 +1936,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5016054925439637216
 GameObject:
@@ -1925,7 +1967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5178980130025750049
 GameObject:
@@ -2090,17 +2132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4014731379678857260}
-  - {fileID: 5791768028911653470}
-  - {fileID: 5348577225991479581}
-  - {fileID: 5326423502042377821}
-  - {fileID: 8446876752238569627}
-  - {fileID: 304983095432306478}
-  - {fileID: 3167292127102745764}
-  - {fileID: 7205906576073875644}
-  - {fileID: 2627582267713774910}
-  - {fileID: 8556598130767926702}
-  - {fileID: 4956292909042210517}
+  - {fileID: 3028254849007745828}
   - {fileID: 7528447883527953912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2116,20 +2148,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0064b657208924939a38226c46791f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   waypointThreshold: 0.1
   toMove: {fileID: 7528447883527953912}
   waypoints:
-  - {fileID: 5791768028911653470}
-  - {fileID: 5348577225991479581}
-  - {fileID: 5326423502042377821}
-  - {fileID: 8446876752238569627}
-  - {fileID: 304983095432306478}
-  - {fileID: 3167292127102745764}
-  - {fileID: 7205906576073875644}
-  - {fileID: 2627582267713774910}
-  - {fileID: 8556598130767926702}
-  - {fileID: 4956292909042210517}
+  - waypoint: {fileID: 5791768028911653470}
+    speedToWaypoint: 1
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 5348577225991479581}
+    speedToWaypoint: 1
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 5326423502042377821}
+    speedToWaypoint: 1
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 8446876752238569627}
+    speedToWaypoint: 1
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 304983095432306478}
+    speedToWaypoint: 1
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 3167292127102745764}
+    speedToWaypoint: 2
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 7205906576073875644}
+    speedToWaypoint: 2
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 2627582267713774910}
+    speedToWaypoint: 3
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 2627582267713774910}
+    speedToWaypoint: 4
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 8556598130767926702}
+    speedToWaypoint: 4
+    cameraZoomDistance: 0
+  - waypoint: {fileID: 4956292909042210517}
+    speedToWaypoint: 2
+    cameraZoomDistance: 0
 --- !u!1 &5421591298087524097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6808932765255074671
 GameObject:
@@ -3048,7 +3102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2845818753360679606, guid: 0f05a1abff3a94146b35d5bb154248e8, type: 3}
+  m_Sprite: {fileID: 7060075997876603151, guid: 7b7b4b253f0854a43a80a54207ac60f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3221,5 +3275,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5451549363272733384}
+  m_Father: {fileID: 3028254849007745828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

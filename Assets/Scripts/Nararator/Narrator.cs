@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Narrator", menuName = "Scriptable Objects/Narrator")]
-public class Narrator : ScriptableObject
+[System.Serializable]
+public class Narrator
 {
     public string name;
     public AudioClip[] clips;

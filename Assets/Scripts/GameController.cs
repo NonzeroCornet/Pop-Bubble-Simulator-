@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI distanceText;
 
     // Wetness
-    public float wetness = 0;
+    public float wetness = 100f;
     public TextMeshProUGUI wetnessText;
     public GameObject wetnessPanel;
 
@@ -38,8 +38,6 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("Awaking game!");
         distanceText.text = $"Distance traveled: {distance:F2} units";
-        // wetnessText.text = $"Wetness: {wetness:F2} units";
-        // topScoresText.text = $"Top Scores: {topScores}";
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,8 +55,8 @@ public class GameController : MonoBehaviour
         distanceText.text = $"Distance traveled: {distance:F2} units";
 
         wetness -= Time.deltaTime;
-        // wetnessText.text = $"Wetness: {wetness:F2} units";
         SetWetnessPanelSize();
+        UpdateBubbleScale();
     }
 
     public void EndGame()
@@ -99,6 +97,13 @@ public class GameController : MonoBehaviour
     {
         wetness += amount;
         SetWetnessPanelSize();
+        UpdateBubbleScale();
+    }
+
+    private void UpdateBubbleScale()
+    {
+        // float scale = Mathf.Clamp(wetness / 100f * 3f, 0.1f, 3f);
+        // bubble.transform.localScale = new Vector3(scale, scale, scale);
     }
 }
 

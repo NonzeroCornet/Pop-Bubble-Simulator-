@@ -12,12 +12,9 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity;
     private Camera cam;
 
-    public float targetZoom;
-
     void Start()
     {
         cam = GetComponent<Camera>();
-        targetZoom = cam.orthographicSize;
     }
 
     void Update()
@@ -41,8 +38,7 @@ public class CameraController : MonoBehaviour
             }
         }
     }
-    
-    // Move the camera
+
     void Move()
     {
         Vector3 centerPoint = GetCenterPoint();
@@ -51,15 +47,10 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
     }
 
-    public void SetTargetZoom(float zoom)
-    {
-        targetZoom = Mathf.Clamp(zoom, minZoom, maxZoom);
-    }
-
-    // Zoom the camera
     void Zoom()
     {
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime);
+        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
     }
 
     float GetGreatestDistance()

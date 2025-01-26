@@ -71,3 +71,4 @@ public class Audiohandler : MonoBehaviour
         narratorSource.Play();
     }
 }
+

@@ -15,6 +15,8 @@ public class MapController : MonoBehaviour
 
     public float waypointThreshold = .1f;
 
+    public CameraController cameraController;
+
     public Transform toMove;
     public List<WaypointRecord> waypoints;
 
@@ -30,6 +32,12 @@ public class MapController : MonoBehaviour
         var curPos = Vector2.MoveTowards(toMove.transform.position, targetPos, waypoint.speedToWaypoint * Time.deltaTime);
 
         toMove.transform.position = curPos;
+
+        // Pass the zoom distance to the camera
+        if (cameraController != null)
+        {
+            cameraController.SetTargetZoom(waypoint.cameraZoomDistance);
+        }
 
         if (Vector2.Distance(curPos, targetPos) < waypointThreshold)
         {
